@@ -1,0 +1,92 @@
+/* --- R2-D2 official color palette --- */
+$blue: #2A56D0;     // fő kék
+$light-blue: #67A8FF; 
+$white: #E6EAF0;
+$silver: #C7CCD4;
+$red: #EF4444;
+$dark-bg: #0B0F19;  // sötét sci-fi háttér
+
+/* --- háttér --- */
+.landing-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  background: radial-gradient(circle at center, $dark-bg 0%, #000 80%);
+}
+
+/* --- monumentális monogram --- */
+.landing-mono {
+  font-size: clamp(8rem, 22vw, 24rem); // JÓL nagy
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 0.8;
+  position: relative;
+
+  /* R2-D2 fehér-ezüst alap */
+  color: rgba($white, 0.12);
+
+  /* enyhe 3D döntés */
+  transform: perspective(600px) rotateX(12deg);
+}
+
+/* --- hologram glow (kék + ezüst) --- */
+.landing-mono::before {
+  content: 'JKÁ';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, $blue, $silver);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 0.45;
+  mix-blend-mode: screen;
+}
+
+/* --- pulzáló kék fény, mintha droid vetítené --- */
+.landing-mono::after {
+  content: 'JKÁ';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, $light-blue, $silver);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter: blur(18px);
+  opacity: 0.28;
+  animation: holoPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes holoPulse {
+  0%   { opacity: 0.20; filter: blur(14px); }
+  50%  { opacity: 0.40; filter: blur(22px); }
+  100% { opacity: 0.20; filter: blur(14px); }
+}
+
+/* --- kis piros R2-D2 jelzőfény hangulat --- */
+.landing-hint {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+
+  color: $red;
+  opacity: 0.8;
+
+  animation: blink 2.2s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1; }
+}

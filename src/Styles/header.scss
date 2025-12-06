@@ -1,0 +1,155 @@
+/* ===== HEADER / NAVBAR / BRAND ===== */
+
+.app-header {
+  width: 100%;
+  padding: 0.8rem 1.5rem 0.6rem;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(16px);
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.94),
+    rgba(15, 23, 42, 0.86),
+    transparent
+  );
+  /*display: flex;
+  justify-content: center;*/
+}
+
+.app-header-inner {
+  width: 100%;
+  //max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* BAL OLDALI CSOPORT: LOGO + TOGGLE */
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* LOGO – forma fix, theme-függő színek */
+.app-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  font-size: 0.9rem;
+  transition:
+    background 0.2s ease-out,
+    box-shadow 0.2s ease-out,
+    color 0.2s ease-out,
+    border-color 0.2s ease-out;
+}
+
+/* HEADER két oldala */
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* NAV BAR */
+
+.app-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.app-nav a {
+  position: relative;
+  color: rgba(249, 250, 251, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: color 0.25s ease-out;
+}
+
+.app-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--accent-soft), var(--accent));
+  transition: width 0.18s ease-out;
+}
+
+.app-nav a:hover,
+.app-nav a.active {
+  color: #ffffff;
+}
+
+.app-nav a:hover::after,
+.app-nav a.active::after {
+  width: 100%;
+}
+
+/* Search bar wrapper a jobb oldalon */
+
+.search-shell,
+.search-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* THEME-SPECIFIKUS LOGO LOOK */
+
+:root[data-theme='dark'] .app-logo {
+  background: radial-gradient(circle at top left, #3b82f6, #004ad8);
+  color: #ffffff;
+  border: none;
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(59, 130, 246, 0.9);
+}
+
+:root[data-theme='blueprint'] .app-logo {
+  background: radial-gradient(circle at top left, #eff6ff, #dbeafe);
+  color: #0b1220;
+  border: 1px solid #60a5fa;
+  box-shadow:
+    0 6px 14px rgba(15, 23, 42, 0.4),
+    0 0 10px rgba(96, 165, 250, 0.45);
+}
+
+/* RESP – header specifikus */
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0.6rem 1rem 0.4rem;
+  }
+
+  .app-header-inner {
+    gap: 1rem;
+  }
+
+  .app-nav {
+    gap: 0.7rem;
+  }
+
+  .app-logo {
+    width: 34px;
+    height: 34px;
+    font-size: 0.8rem;
+  }
+}

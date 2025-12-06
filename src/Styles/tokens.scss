@@ -1,0 +1,41 @@
+/* :root*/
+/* ===== THEME TOKENS – DARK + BLUEPRINT ===== */
+
+:root {
+  /* alapértelmezett – majd Angular felülírja data-theme alapján */
+  --bg: #050b18;
+  --bg-alt: #071021;
+  --panel-bg: #eef3fb;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --accent: #004596;
+  --accent-soft: #3b82f6;
+  --border: #1f2937;
+  --danger: #b71c1c;
+}
+
+/* DARK MODE – R2 “űr” */
+:root[data-theme='dark'] {
+  --bg: #050b18;
+  --bg-alt: #071021;
+  --panel-bg: #eef3fb;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --accent: #004596;
+  --accent-soft: #3b82f6;
+  --border: #1f2937;
+  --danger: #b71c1c;
+}
+
+/* BLUEPRINT MODE – mérnöki / tervrajz */
+:root[data-theme='blueprint'] {
+  --bg: #0b1220;
+  --bg-alt: #0f172a;
+  --panel-bg: #e5efff;
+  --text-main: #0b1220;
+  --text-muted: #4b5563;
+  --accent: #2563eb;
+  --accent-soft: #60a5fa;
+  --border: #93c5fd;
+  --danger: #b91c1c;
+}

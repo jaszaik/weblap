@@ -1,0 +1,298 @@
+// R2-D2 paletta (a saját sheeted alapján)
+$blue: #004596;
+$grey: #c0c0c0;
+$white: #ffffff;
+$dark: #2b2b2b;
+$red: #b71c1c;
+
+.contact-shell {
+  min-height: calc(100vh - 8rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --------- CIRCLE DIAL --------- */
+
+.circle-dial {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dial-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+/* 4 negyed kör */
+
+.quad {
+  width: 150px;
+  height: 150px;
+  background: rgba($white, 0.96);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba($grey, 0.6);
+
+  box-shadow:
+    0 18px 40px rgba(3, 7, 18, 0.9),
+    0 0 0 0 rgba($blue, 0);
+
+  text-decoration: none;
+  transition:
+    transform 0.18s ease-out,
+    box-shadow 0.18s ease-out,
+    border-color 0.18s ease-out,
+    background 0.18s ease-out;
+
+  animation: holo-float 5s ease-in-out infinite;
+}
+
+.quad--tl {
+  border-radius: 150px 18px 18px 18px;
+}
+
+.quad--tr {
+  border-radius: 18px 150px 18px 18px;
+}
+
+.quad--bl {
+  border-radius: 18px 18px 18px 150px;
+}
+
+.quad--br {
+  border-radius: 18px 18px 150px 18px;
+}
+
+/* belső hologram gyűrű */
+
+.quad::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: inherit;
+  border: 1px solid rgba($blue, 0.2);
+  box-shadow: 0 0 26px rgba($blue, 0.25);
+  opacity: 0.7;
+  pointer-events: none;
+  transition:
+    border-color 0.25s ease-out,
+    box-shadow 0.25s ease-out,
+    opacity 0.25s ease-out;
+}
+
+/* IKON – itt lesz az egységes arány */
+
+.icon {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+
+/* hover: erősebb glow */
+
+.quad:hover {
+  transform: translateY(-4px);
+  background: $white;
+  border-color: rgba($blue, 0.8);
+  box-shadow:
+    0 22px 60px rgba(3, 7, 18, 1),
+    0 0 40px rgba($blue, 0.8);
+
+  animation: holo-pulse 1.8s ease-in-out infinite;
+}
+
+.quad:hover::before {
+  border-color: rgba($blue, 0.95);
+  box-shadow:
+    0 0 35px rgba($blue, 0.9),
+    0 0 70px rgba($blue, 0.55);
+  opacity: 1;
+}
+
+/* alap lebegés */
+
+@keyframes holo-float {
+  0% {
+    transform: translateY(0px);
+    box-shadow:
+      0 18px 40px rgba(3, 7, 18, 0.9),
+      0 0 0 0 rgba($blue, 0);
+  }
+  50% {
+    transform: translateY(-3px);
+    box-shadow:
+      0 20px 50px rgba(3, 7, 18, 0.95),
+      0 0 18px rgba($blue, 0.3);
+  }
+  100% {
+    transform: translateY(0px);
+    box-shadow:
+      0 18px 40px rgba(3, 7, 18, 0.9),
+      0 0 0 0 rgba($blue, 0);
+  }
+}
+
+/* hover pulzus */
+
+@keyframes holo-pulse {
+  0% {
+    transform: translateY(-2px);
+    box-shadow:
+      0 22px 55px rgba(3, 7, 18, 1),
+      0 0 25px rgba($blue, 0.5);
+  }
+  50% {
+    transform: translateY(-5px);
+    box-shadow:
+      0 26px 70px rgba(3, 7, 18, 1),
+      0 0 50px rgba($blue, 1);
+  }
+  100% {
+    transform: translateY(-2px);
+    box-shadow:
+      0 22px 55px rgba(3, 7, 18, 1),
+      0 0 25px rgba($blue, 0.5);
+  }
+}
+
+/* --------- EMAIL / PHONE pill gombok --------- 
+
+.extra-contact {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+}
+*/
+.pill {
+  padding: 0.6rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba($blue, 0.6);
+  background: rgba($dark, 0.9);
+  color: $white;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.9),
+    0 0 0 0 rgba($blue, 0);
+
+  transition:
+    transform 0.16s ease-out,
+    box-shadow 0.16s ease-out,
+    background 0.16s ease-out,
+    border-color 0.16s ease-out;
+}
+
+.pill:hover {
+  transform: translateY(-2px);
+  background: $blue;
+  border-color: lighten($blue, 10%);
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.95),
+    0 0 25px rgba($blue, 0.7);
+}
+
+/* Mobil reszponzív */
+
+@media (max-width: 768px) {
+  .quad {
+    width: 120px;
+    height: 120px;
+  }
+
+  .icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .extra-contact {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pill {
+    width: 180px;
+    text-align: center;
+  }
+}
+
+.direct-card {
+  margin-top: 2rem;
+  padding: 1.25rem 1.75rem;
+  min-width: 320px;
+  max-width: 420px;
+
+  border-radius: 18px;
+  background: radial-gradient(circle at top left, rgba($blue, 0.2), rgba($dark, 0.95));
+  border: 1px solid rgba($blue, 0.4);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba($blue, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.direct-title {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba($white, 0.7);
+}
+
+.direct-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.25rem;
+  border-radius: 999px;
+  text-decoration: none;
+
+  transition:
+    background 0.16s ease-out,
+    transform 0.16s ease-out,
+    box-shadow 0.16s ease-out;
+}
+
+.direct-row:hover {
+  background: rgba($blue, 0.35);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+}
+
+.direct-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.direct-text {
+  font-size: 0.95rem;
+  color: $white;
+  letter-spacing: 0.02em;
+}
+
+/* mobil */
+@media (max-width: 768px) {
+  .direct-card {
+    width: 100%;
+    max-width: 360px;
+    padding: 1rem 1.25rem;
+  }
+}

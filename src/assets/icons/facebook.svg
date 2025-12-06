@@ -1,0 +1,16 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- háttér -->
+  <rect x="4" y="4" width="56" height="56" rx="20" fill="#2B2B2B"/>
+
+  <!-- fehér panel -->
+  <rect x="10" y="10" width="44" height="44" rx="14" fill="#FFFFFF" stroke="#C0C0C0" stroke-width="2"/>
+
+  <!-- stylized "F" -->
+  <path
+    d="M32 18c-4.3 0-7 2.6-7 7.2V30h-3v6h3v10h6V36h4.2L36 30h-4v-4.5c0-1.6.7-2.5 2.6-2.5H36v-5c-.7-.1-2-.2-4-.2z"
+    fill="#004596"
+  />
+
+  <!-- R2-D2 piros szenzor pötty -->
+  <circle cx="47" cy="17" r="2.1" fill="#B71C1C"/>
+</svg>
