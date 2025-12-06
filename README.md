@@ -1,2 +1,2 @@
-# weblap
+# Weblap
 Portfolio website
