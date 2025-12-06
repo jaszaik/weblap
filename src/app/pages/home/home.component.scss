@@ -1,3 +1,248 @@
+.home-page {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+/* HERO LAYOUT */
+
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  min-height: calc(100vh - 230px); // header + footer miatt kb.
+}
+
+.home-hero-left {
+  flex: 1.2;
+}
+
+.home-hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* TEXT */
+
+.home-hero-title {
+  margin-top: 1.2rem;
+  margin-bottom: 0.9rem;
+  font-size: clamp(2.1rem, 3vw, 2.7rem);
+  letter-spacing: 0.02em;
+}
+
+.home-hero-subtitle {
+  margin: 0 0 1.6rem 0;
+  max-width: 34rem;
+  color: var(--text-muted);
+}
+
+/* ACTIONS */
+
+.home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-bottom: 1.4rem;
+}
+
+.home-hero-actions .r2-btn-primary,
+.home-hero-actions .r2-btn-ghost {
+  font-size: 0.78rem;
+}
+
+/* META SOR */
+
+.home-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.meta-label {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.meta-value {
+  color: var(--text-main);
+}
+
+/* JOBB OLDALI "ORBIT" KÁRTYA */
+
+.hero-orbit-card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  border-radius: 24px;
+  padding: 1.4rem 1.5rem 1.6rem;
+  overflow: hidden;
+  transition: background 0.25s ease, border 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* kis blueprint grid a kártyában */
+
+/* kis blueprint grid a kártyában – alap beállítás */
+.orbit-grid {
+  position: absolute;
+  inset: 0;
+  background-size: 14px 14px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* DARK THEME: sötétkék grid a navy panelen */
+:root[data-theme='dark'] .orbit-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.8) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.8) 1px, transparent 1px);
+}
+
+/* BLUEPRINT THEME: világosabb, finom grid */
+:root[data-theme='blueprint'] .orbit-grid {
+  background-image:
+    linear-gradient(to right, rgba(96, 165, 250, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(96, 165, 250, 0.2) 1px, transparent 1px);
+  opacity: 0.14;
+}
+
+
+/* gyűrűk */
+
+.orbit-ring {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(96, 165, 250, 0.6);
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.55);
+}
+
+.orbit-ring--outer {
+  width: 260px;
+  height: 260px;
+  top: -120px;
+  right: -60px;
+}
+
+.orbit-ring--inner {
+  width: 170px;
+  height: 170px;
+  top: -70px;
+  right: 5px;
+}
+
+/* badge + lista */
+
+.hero-orbit-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(96, 165, 250, 0.65);
+  margin-bottom: 1.2rem;
+}
+
+.hero-orbit-badge .badge-label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.65rem;
+  color: rgba(148, 163, 184, 0.9);
+}
+
+.hero-orbit-badge .badge-value {
+  font-size: 0.8rem;
+  color: #e5e7eb;
+}
+
+.hero-orbit-list {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+}
+
+.hero-orbit-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.hero-orbit-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--accent-soft), var(--accent));
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
+}
+
+/* WHAT I DO – 3 KÁRTYA */
+
+.home-pillars {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.pillar-card {
+  padding: 1.4rem 1.5rem;
+}
+
+.pillar-card h2 {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-muted);
+}
+
+.pillar-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 960px) {
+  .home-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: auto;
+  }
+
+  .home-hero-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .hero-orbit-card {
+    max-width: 100%;
+  }
+
+  .home-pillars {
+    grid-template-columns: 1fr;
+  }
+}
+
 .wheel-and-hamster {
   --dur: 1s;
   position: relative;
@@ -270,3 +515,54 @@
     transform: rotate(-1turn);
   }
 }
+/* BLUEPRINT THEME — HERO ORBIT CARD */
+:root[data-theme='blueprint'] .hero-orbit-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  box-shadow:
+    0 25px 40px rgba(15, 23, 42, 0.18),
+    0 0 18px rgba(96, 165, 250, 0.25);
+  color: #0f172a;
+}
+
+/* GRID — blueprint alatt legyen szuper finom */
+:root[data-theme='blueprint'] .orbit-grid {
+  opacity: 0.08;
+  background-image:
+    linear-gradient(to right, rgba(96, 165, 250, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(96, 165, 250, 0.25) 1px, transparent 1px);
+}
+
+/* RING — kevesebb neon, több engineering */
+:root[data-theme='blueprint'] .orbit-ring {
+  border-color: rgba(96, 165, 250, 0.35);
+  box-shadow: none;
+  opacity: 0.2;
+}
+
+/* BADGE — világos bubble */
+:root[data-theme='blueprint'] .hero-orbit-badge {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(96, 165, 250, 0.45);
+  color: #1e293b;
+}
+
+:root[data-theme='blueprint'] .hero-orbit-badge .badge-label {
+  color: #64748b; /* slate-500 */
+}
+
+:root[data-theme='blueprint'] .hero-orbit-badge .badge-value {
+  color: #1e293b;
+}
+
+/* LISTA — tiszta, magyarán olvasható */
+:root[data-theme='blueprint'] .hero-orbit-list li {
+  color: #1e293b;
+}
+
+:root[data-theme='blueprint'] .hero-orbit-list li::before {
+  background: var(--accent);
+  box-shadow: none;
+}
+

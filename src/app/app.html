@@ -9,7 +9,10 @@
         <div class="app-logo">JKÁ</div>
 
         <label class="bb8-toggle">
-          <input class="bb8-toggle__checkbox" type="checkbox" />
+          <input class="bb8-toggle__checkbox"
+          type="checkbox" 
+          [checked]="currentTheme === 'dark'"
+          (change)="onThemeToggle($event)" />
           <div class="bb8-toggle__container">
             <div class="bb8-toggle__scenery">
               <div class="bb8-toggle__star"></div>
@@ -48,7 +51,7 @@
 
         <!-- SEARCH BAR BLOKK -->
         <div class="search-shell">
-          <div class="grid"></div>
+          <!--div class="grid"></div -->
           <div id="poda">
             <div class="glow"></div>
             <div class="darkBorderBg"></div>
